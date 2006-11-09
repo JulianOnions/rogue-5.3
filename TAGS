@@ -1,0 +1,325 @@
+
+Data.c,0
+
+armour.c,30
+take_off(32,536
+wear(11,123
+
+chase.c,278
+cansee(300,7758
+chase(203,5139
+diag_ok(289,7446
+dist(358,9351
+dist_cp(364,9440
+do_chase(60,1201
+struct coords *find_dest(322,8258
+move_monst(52,1001
+struct room *roomin(272,6961
+runners(20,247
+runto(193,4941
+see_monst(175,4411
+set_oldch(158,3963
+waste_time(11,122
+
+command.c,184
+call(692,13110
+command(112,3221
+current(751,14398
+d_level(652,12418
+help(581,11025
+identify(626,11959
+illcom(522,9782
+levit_check(685,12969
+search(531,9895
+u_level(669,12669
+
+daemon.c,383
+come_down(220,4433
+struct daemon *d_slot(21,256
+daemon(40,643
+do_daemons(60,982
+do_fuses(100,1712
+doctor(113,1992
+extinguish(92,1579
+struct daemon *find_slot(30,424
+fuse(71,1211
+kill_daemon(52,848
+land(287,5933
+lengthen(83,1426
+nohaste(182,3371
+rollwand(142,2596
+sight(172,3119
+stomach(189,3467
+swander(134,2497
+unconfuse(156,2802
+unsee(162,2911
+visuals(255,5240
+
+extern.h,0
+
+fight.c,211
+attack(101,2048
+bounce(402,9296
+fight(47,729
+hit(368,8635
+killed(445,10211
+miss(388,9005
+char *prname(342,8141
+remove(417,9582
+roll_em(281,6262
+char *set_mname(248,5632
+swing(273,6138
+thunk(353,8344
+
+init.c,181
+init_colours(329,3751
+init_materials(378,4813
+init_names(342,4033
+init_player(293,2959
+init_probs(406,5469
+init_stones(364,4503
+char *pick_colour(424,5805
+sumprobs(417,5651
+
+io.c,183
+addmsg(50,649
+doadd(96,1320
+endmsg(62,789
+err_msg(130,1772
+msg(29,398
+quest(107,1493
+readchar(145,2029
+show_win(223,3512
+status(153,2173
+step_ok(138,1889
+wait_for(212,3373
+
+item.c,97
+_attach(21,383
+_detach(11,121
+_free_list(34,581
+discard(45,742
+struct item *new_item(51,807
+
+mach_dep.c,264
+b_msg(138,3167
+bouncer(110,2510
+flush_type(370,7161
+getltchars(251,5108
+init_check(91,2072
+loadav(178,3787
+lock_sc(287,5633
+open_score(262,5284
+setup(227,4643
+start_score(280,5551
+symlink(355,6945
+too_much(156,3454
+ucount(203,4249
+unlock_sc(345,6822
+
+mach_dep.h,0
+
+main.c,107
+leave(190,3667
+main(13,160
+my_exit(240,4530
+quit(164,3252
+rnd(146,3027
+roll(156,3127
+shell(202,3814
+
+map.c,105
+erase_lamp(152,3323
+struct item *find_obj(177,3949
+look(11,120
+show_floor(171,3803
+trip_ch(131,3009
+
+misc.c,266
+add_haste(85,1835
+add_str(73,1657
+aggravate(100,2124
+call_it(223,3921
+check_level(44,874
+chg_str(61,1283
+char *choose_str(248,4421
+eat(13,153
+get_dir(138,2740
+is_current(125,2447
+rnd_thing(241,4334
+sign(210,3806
+spread(217,3866
+char *vowelstr(106,2241
+
+monster.c,131
+exp_add(60,1550
+give_pack(149,3635
+new_monster(28,508
+randmonster(14,228
+struct being *wake_monster(92,2275
+wanderer(77,1855
+
+move.c,195
+be_trapped(193,3867
+do_move(37,524
+do_run(30,460
+door_open(181,3539
+struct coords *rndmove(262,5569
+rust_armour(289,6267
+save(20,268
+save_throw(11,121
+turn_ok(159,3155
+turnref(167,3318
+
+new_level.c,97
+new_level(11,126
+put_things(61,1429
+rnd_room(54,1327
+show_level(124,3041
+treas_room(88,2176
+
+option.c,202
+get_bool(84,1978
+get_inv_t(190,3883
+get_sf(123,2563
+get_str(140,2814
+option(28,1089
+parse_opts(232,4514
+pr_optname(60,1697
+put_bool(66,1802
+put_inv_t(78,1913
+put_str(72,1865
+strucpy(283,5815
+
+pack.c,217
+add_pack(11,121
+struct item *get_item(242,5478
+inventory(149,3586
+struct item *leave_pack(117,3009
+money(280,6202
+move_msg(208,4815
+pack_char(141,3452
+pack_room(96,2559
+pick_up(183,4355
+picky_inven(215,4930
+
+param.h,386
+# define CTRL(53,1066
+# define	bc(296,6306
+# define	bx(297,6337
+# define	by(298,6364
+# define ceq(288,6117
+# define cne(289,6170
+# define lring(213,4464
+# define	mindex(118,2301
+# define pbeing(265,5665
+# define pch(263,5581
+# define pflags(264,5620
+# define place_ch(266,5710
+# define ring(215,4602
+# define rring(214,4532
+# define	xcof(291,6224
+# define	ycof(292,6249
+
+passages.c,141
+conn(118,3109
+do_passages(69,1808
+door(228,6186
+floor_at(62,1691
+floor_ch(56,1581
+numpass(264,6957
+passnum(249,6636
+putpass(215,5954
+
+potion.c,132
+do_pot(270,6645
+invis_on(213,5328
+is_magic(194,4979
+quaff(62,910
+raise_level(264,6545
+seen_stairs(252,6167
+turn_see(224,5612
+
+ring.c,94
+gethand(86,1939
+ring_eat(99,2257
+char *ring_num(110,2507
+ring_off(63,1433
+ring_on(28,591
+
+score.c,136
+centre(263,6170
+death(205,4927
+death_monst(395,9879
+do_score(83,1757
+char *killname(365,9309
+score(59,1235
+total_winner(269,6240
+
+screen.c,202
+accnt_maze(217,4712
+dig(169,3792
+do_maze(147,3295
+do_rooms(31,377
+draw_room(108,2483
+enter_room(267,5861
+find_floor(237,5189
+horiz(137,3121
+leave_room(307,6751
+rnd_pos(229,5017
+vert(127,2937
+
+scribe.c,149
+auto_save(63,1090
+encread(179,3520
+encwrite(159,3172
+rd_score(200,3921
+restore(104,1835
+save_file(77,1320
+save_game(18,222
+wr_score(207,4029
+
+scroll.c,38
+read_scroll(19,244
+uncurse(182,4553
+
+stick.c,96
+char *charge_str(339,8468
+do_zap(33,515
+drain(198,4880
+fire_bolt(239,5853
+fix_stick(17,213
+
+thing.c,277
+add_line(382,8217
+discovered(287,6552
+drop(134,3053
+dropcheck(155,3665
+end_line(443,9488
+char *inv_name(23,258
+nameit(482,10097
+struct item *new_thing(184,4319
+char *nothing(457,9664
+char *nullstr(509,10842
+pick_one(258,6031
+print_disc(331,7280
+set_order(368,7985
+
+throw.c,76
+do_motion(24,531
+fall(55,1456
+missile(13,147
+char *missile_name(84,2074
+
+types.h,0
+
+weapon.c,174
+fallpos(121,2302
+hit_monster(72,1396
+init_weapon(46,789
+char *num(82,1555
+set_know(189,3653
+teleport(213,4101
+char *type_name(203,3918
+whatis(143,2780
+wield(92,1779
