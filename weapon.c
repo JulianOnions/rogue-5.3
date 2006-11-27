@@ -18,15 +18,15 @@ struct idam {
 	char	id_uses;
 	int	id_flags;
 } Init_dam[] = {
-{	"2x4",	"1x3",	-1,		0},
-{	"3x4",	"1x2",	-1,		0},
-{	"1x1",	"1x1",	-1,		0},
-{	"1x1",	"2x3",	SHORT_BOW,	THROW | GROUP},
-{	"1x6",	"1x4",	-1,		THROW},
-{	"4x4",	"1x2",	-1,		0},
-{	"1x1",	"1x3",	-1,		THROW | GROUP},
-{	"1x2",	"2x4",	-1,		THROW | GROUP},
-    {	"2x3",	"1x6",	-1,		THROW}
+{	"2x4",	"1x3",	-1,		0}, /* MACE */
+{	"3x4",	"1x2",	-1,		0}, /* LONG SWORD */
+{	"1x1",	"1x1",	-1,		0}, /* SHORT BOW */
+{	"1x1",	"2x3",	SHORT_BOW,	THROW | GROUP},	/* ARROW */
+{	"1x6",	"1x4",	-1,		THROW},	/* DAGGER */
+{	"4x4",	"1x2",	-1,		0}, /* TWO HANDED SWORD */
+{	"1x1",	"1x3",	-1,		THROW | GROUP},	/* DART */
+{	"1x2",	"2x4",	-1,		THROW | GROUP},	/* SHURIKEN */
+    {	"2x3",	"1x6",	-1,		THROW} /* SPEAR */
 };
 
 struct tname {

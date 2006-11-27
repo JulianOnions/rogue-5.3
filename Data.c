@@ -122,6 +122,8 @@ struct room	Passages[PASSAGES] = {
     {	0,	0,	0,	0,	ZC,	0,	3,	0,	ZC12}
 };
 
+char venusstat[10] = "%%%x0";
+
 struct monster	Monsters[26] = {
 {"aquator",	0,
 	AGGRESSIVE,
@@ -140,7 +142,7 @@ struct monster	Monsters[26] = {
 	10,	2,	1,	7,	1,	"1x2",		0},
 {"venus flytrap",0,
 	AGGRESSIVE,
-	10,	80,	8,	3,	1,	"%%%x0",	0},
+	10,	80,	8,	3,	1,	venusstat,	0},
 {"griffin",	20,
 	AGGRESSIVE | FEARS_LIGHT | FAST_MOVE,
 	10,	2000,	13,	2,	1,	"4x3/3x5",	0},

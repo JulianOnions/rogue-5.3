@@ -216,6 +216,8 @@ void show_win(char *message)
 	wmove(win,MYY,MYX);
 	wrefresh(win);
 	wait_for(' ');
-	clearok(curscr,TRUE);
+        clearok(curscr, TRUE);
+        wclear(Hw);
+        touchwin(stdscr);
 }
 

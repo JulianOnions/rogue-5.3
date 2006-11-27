@@ -237,7 +237,7 @@ void setup()
 	__sighandler_t auto_save, quit, tstp;
 	signal(SIGINT,quit);
 	signal(SIGHUP,auto_save);
-# ifndef DEBUG
+# if 0 //ndef DEBUG
 	signal(SIGILL,auto_save);
 	signal(SIGTRAP,auto_save);
 	signal(SIGIOT,auto_save);

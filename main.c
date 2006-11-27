@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
 	register int tim;
 	register const char *term;
 	register int ccount;
-# ifndef DEBUG
+# if 0 //ndef DEBUG
 	signal(SIGQUIT,exit);
 	signal(SIGILL,exit);
 	signal(SIGTRAP,exit);

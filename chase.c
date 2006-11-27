@@ -27,10 +27,11 @@ void waste_time()
 /* ARGSUSED */
 void runners(int junk)
 {
-	register struct being *runner;
+	register struct being *runner, *next;
 	bool engaged;
 	static struct coords oldpos;
-	for(runner = Mlist; runner; runner = runner->b_link) {
+	for(runner = Mlist; runner; runner = next) {
+	    next = runner->b_link;
 		if((runner->b_flags & FEARS_LIGHT) && (runner->b_room->r_flags & R_DARK) == 0) {
 			runner->b_flags |= MOBILE;
 			runner->b_dest = find_dest(runner);
