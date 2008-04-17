@@ -186,7 +186,7 @@ void set_know(register struct item *thing, register struct info *inf)
 	thing->i_flags |= KNOWN;
 	called = &inf[thing->i_type].inf_called;
 	if(*called) {
-		cfree(*called);
+		free(*called);
 		*called = 0;
 	}
 }

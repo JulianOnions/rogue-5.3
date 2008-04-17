@@ -41,7 +41,7 @@ void _free_list(register struct item **list)
 
 void discard(register struct item *thing)
 {
-	cfree(thing);
+	free(thing);
 }
 
 struct item *new_item()

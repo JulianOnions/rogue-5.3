@@ -74,7 +74,7 @@ extern struct ltchars	Ltc;
  */
 
 char	*charge_str(), *choose_str(), *ctime(), *getenv(),
-	*killname(), *malloc(), *nullstr(), *pick_colour(), *ring_num(), *sbrk(), *set_mname(),
+	*killname(), *nullstr(), *pick_colour(), *ring_num(), *set_mname(),
 	*type_name(), *vowelstr(),
 	*index(), *prname(), *missile_name();
 
@@ -82,8 +82,8 @@ char *nothing(char item);
 char *inv_name(register struct item *thing, bool lower);
 
 void 	leave(), quit();
-int	endit(), 
-    tstp();
+int	endit(); 
+void    tstp();
 
 char *num(register int num1, int num2, char item);
 char *pick_colour(char *colour);
@@ -268,5 +268,4 @@ struct item	*get_item(), *new_item(), *new_thing(), *find_obj();
 int	checkout();
 #endif
 
-long	lseek(), time();
 

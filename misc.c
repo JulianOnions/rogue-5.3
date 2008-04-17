@@ -216,13 +216,13 @@ void call_it(register struct info *inf)
 {
 	if(inf->inf_known) {
 		if(inf->inf_called) {
-			cfree(inf->inf_called);
+			free(inf->inf_called);
 			inf->inf_called = 0;
 		}
 	} else if(inf->inf_called == 0) {
 		msg(Terse ? "call it: " : "what do you want to call it? ");
 		if(get_str(Prbuf,stdscr) == 0) {
-			if(inf->inf_called) cfree(inf->inf_called);
+			if(inf->inf_called) free(inf->inf_called);
 			inf->inf_called = malloc(strlen(Prbuf)+1);
 			strcpy(inf->inf_called,Prbuf);
 		}

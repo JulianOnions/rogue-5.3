@@ -754,7 +754,7 @@ void call()
 		strcpy(Prbuf,oldname);
 	else	Prbuf[0] = '\0';
 	if(get_str(Prbuf,stdscr) == 0) {
-		if(*called) cfree(*called);
+		if(*called) free(*called);
 		*called = malloc(strlen(Prbuf)+1);
 		strcpy(*called,Prbuf);
 	}

@@ -234,7 +234,7 @@ ucount()
 
 void setup()
 {
-	__sighandler_t auto_save, quit, tstp;
+	void auto_save(), quit(), tstp();
 	signal(SIGINT,quit);
 	signal(SIGHUP,auto_save);
 # if 0 //ndef DEBUG

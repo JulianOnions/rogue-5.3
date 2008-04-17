@@ -105,7 +105,7 @@ void save_file(register FILE *sf)
 void restore(register char *filename)
 {
 	register int fd;
-	__sighandler_t act;
+	 void *act;
 	char frob;
 	char vers[MAXSTR];
 	struct stat statbuf;
@@ -133,7 +133,7 @@ void restore(register char *filename)
 		printf("Sorry, saved game is out of date.\n");
 		exit(1);
 	}
-	brk(version+statbuf.st_size);
+	sbrk(statbuf.st_size);
 	lseek(fd,1,0);
 	Frob = frob;
 	encread(version,statbuf.st_size,fd);

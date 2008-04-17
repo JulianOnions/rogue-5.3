@@ -100,7 +100,7 @@ void do_score(player_score,end_type,killtype,fd,max_days,type_str)
 	FILE *score_fd;
 	int uid, this_day, limit;
 	extern int	_putchar();
-	__sighandler_t action;
+	void *action;
 
 	if(fd < 0) return;
 	this_day = max_days ? time(0)/SECSPERDAY : 0;
