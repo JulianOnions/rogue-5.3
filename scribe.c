@@ -133,7 +133,7 @@ void restore(register char *filename)
 		printf("Sorry, saved game is out of date.\n");
 		exit(1);
 	}
-	sbrk(statbuf.st_size);
+	brk(version+statbuf.st_size);
 	lseek(fd,1,0);
 	Frob = frob;
 	encread(version,statbuf.st_size,fd);

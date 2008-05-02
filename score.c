@@ -25,7 +25,7 @@ char	*Rip[] = {
 	"                  |                  |\n",
 	"                  |   killed by a    |\n",
 	"                  |                  |\n",
-	"                  |       1980       |\n",
+	"                  |       2000       |\n",
 	"                 *|     *  *  *      | *\n",
 	"         ________)/\\\\_//(\\/(/\\)/\\//\\/|_)_______\n",
 	0
@@ -260,8 +260,8 @@ void death(char cause)
 		mvaddstr(14,centre(Whoami),Whoami);
 		sprintf(Prbuf,"%d Au",Purse);
 		mvaddstr(15,centre(Prbuf),Prbuf);
-		sprintf(Prbuf,"%2d",tvec->tm_year);
-		mvaddstr(18,28,Prbuf);
+		sprintf(Prbuf,"%4d",tvec->tm_year+1900);
+		mvaddstr(18,26,Prbuf);
 	}
 	move(LINES-1,0);
 	refresh();
