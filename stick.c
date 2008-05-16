@@ -242,7 +242,7 @@ void fire_bolt(struct coords *start, struct coords *delta,char *boltname)
 {
 	register struct coords *path, *draw_path;
 	register struct being *monst;
-	char boltch, floorch;
+	char boltch = 0, floorch;
 	bool atplayer, bolthit, missed;
 	struct item bolt;
 	bolt.i_item = WEAPON;

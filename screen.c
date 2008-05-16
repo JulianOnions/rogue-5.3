@@ -171,7 +171,7 @@ void dig(register int y, int x)
 {
 	register struct coords *inc;
 	register int count, ytry, xtry;
-	int newy, newx;
+	int newy = 0, newx = 0;
 	static struct coords pass;
 	for(;;) {
 		count = 0;
@@ -241,7 +241,7 @@ int find_floor(
 {
 	register struct place *floor;
 	register int count;
-	char floorch;
+	char floorch = 0;
 	bool any_room;
 	if(!(any_room = room == 0)) {
 		floorch = room->r_flags & R_MAZE ? PASSAGE : FLOOR;

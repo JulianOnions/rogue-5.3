@@ -13,7 +13,7 @@ SRCS=	Data.c armour.c chase.c command.c daemon.c fight.c init.c io.c item.c\
 	passages.c potion.c ring.c score.c screen.c scribe.c scroll.c stick.c\
 	thing.c throw.c weapon.c mach_dep.c
 
-CFLAGS=	-g -Wall
+CFLAGS=	-g -Wall -O
 
 rogue:  Data.o ${OBJS}
 	${CC} -g -o rogue Data.o ${OBJS} -lcurses

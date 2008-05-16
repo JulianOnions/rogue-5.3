@@ -16,7 +16,7 @@ void look(bool wake)
 	unsigned char *lflags;
 	char floorch;
 	int ystart, xstart;
-	int yxsum, yxdiff;
+	int yxsum = 0, yxdiff = 0;
 	register int x, y;
 	register int lookch;
 	register struct being *monst;
