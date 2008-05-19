@@ -8,8 +8,8 @@
 # include "types.h"
 # include "extern.h"
 
-static void move_monst(register struct being *runner);
-static void do_chase(register struct being *runner);
+static int move_monst(register struct being *runner);
+static int do_chase(register struct being *runner);
 static void set_oldch(register struct being *monst,
 		      register struct coords *c);
 
@@ -39,7 +39,7 @@ void runners(int junk)
 		if((runner->b_flags & HELD) == 0 && (runner->b_flags & MOBILE)) {
 			oldpos = bc(runner);
 			engaged = (runner->b_flags & FIGHTING) != 0;
-			move_monst(runner);
+			if (move_monst(runner)) continue;
 			if(runner->b_flags & FAST_MOVE) {
 				if(dist_cp(&ME,&bc(runner)) >= 3) {
 					move_monst(runner);
@@ -57,14 +57,19 @@ void runners(int junk)
 	}
 }
 
-static void move_monst(register struct being *runner)
+static int move_monst(register struct being *runner)
 {
-	if((runner->b_flags & SLOW) == 0 || runner->b_moved) do_chase(runner);
-	if(runner->b_flags & FAST) do_chase(runner);
-	runner->b_moved ^= TRUE;
+    if((runner->b_flags & SLOW) == 0 || runner->b_moved) {
+	if (do_chase(runner)) return 1;
+    }
+    if(runner->b_flags & FAST) {
+	if (do_chase(runner)) return 1;
+    }
+    runner->b_moved ^= TRUE;
+    return 0;
 }
 
-void do_chase(register struct being *runner)
+int do_chase(register struct being *runner)
 {
 	register struct coords *door;
 	register struct room *inroom, *destroom;
@@ -102,7 +107,7 @@ void do_chase(register struct being *runner)
 						To_death = FALSE;
 						Kamikaze = FALSE;
 					}
-					return;
+					return 0;
 				}
 			}
 			break;
@@ -119,11 +124,10 @@ void do_chase(register struct being *runner)
 		atdoor = FALSE;
 	}
 	if(chase(runner,&make_for)) {
-		if(runner->b_ch == VENUS_FLYTRAP) return;
+		if(runner->b_ch == VENUS_FLYTRAP) return 0;
 	} else {
 		if(ceq(Ch_ret,ME)) {
-			attack(runner);
-			return;
+		    return attack(runner);
 		}
 		if(make_for.x == runner->b_dest->x && make_for.y == runner->b_dest->y) {
 			for(taken = Lvl_obj; taken; taken = taken->i_link) {
@@ -159,6 +163,7 @@ void do_chase(register struct being *runner)
 		standend();
 	}
 	if(arrived && ceq(bc(runner),*(runner->b_dest))) runner->b_flags &= ~MOBILE;
+	return 0;
 }
 
 void set_oldch(register struct being *monst,

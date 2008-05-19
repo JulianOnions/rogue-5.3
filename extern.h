@@ -98,7 +98,7 @@ void add_pack(register struct item *thing, bool silent);
 void add_str(register int *strength,int change);
 void addmsg(const char *message, ...);
 void aggravate();
-void attack(struct being *m);
+int attack(struct being *m);
 void auto_save();
 int be_trapped(register struct coords *pos);
 struct being *wake_monster(int y, int x);

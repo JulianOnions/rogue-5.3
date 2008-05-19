@@ -19,6 +19,12 @@ static void save_file(register FILE *sf);
 void encread(register char *buf, int nbytes, int fd);
 void encwrite(register char *buf, int nbytes, FILE *f);
 struct stat	Sbuf;
+#ifndef TIOCSLTC
+void brk(char *str)
+{
+abort();
+}
+#endif
 
 void save_game()
 {

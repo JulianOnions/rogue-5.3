@@ -118,12 +118,14 @@ int fight(register struct coords *mpos,
 	return(confused);
 }
 
-void attack(register struct being *m)
+int attack(register struct being *m)
 {
 	register char *mname;
 	register int oldhp;
 	register int ct;
 	register struct item *find, *stolen;
+	int retval = 0;
+
 	Running = 0;
 	Count = 0;
 	Quiet = 0;
@@ -223,6 +225,7 @@ void attack(register struct being *m)
 				if(Purse < 0) Purse = 0;
 				remove_item(&bc(m),m,FALSE);
 				if(Purse != ct) msg("your purse feels lighter");
+				retval = 1;
 				break;
 			case NYMPH:
 				stolen = 0;
@@ -245,6 +248,7 @@ void attack(register struct being *m)
 					msg("she stole %s!",inv_name(stolen,TRUE));
 					discard(stolen);
 				}
+				retval = 1;
 				break;
 			}
 		}
@@ -261,7 +265,7 @@ void attack(register struct being *m)
 	if(Fight_flush && !To_death) flush_type();
 	Count = 0;
 	status();
-	return;
+	return retval;
 }
 
 char *set_mname(m)
