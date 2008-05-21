@@ -10,6 +10,24 @@
 
 static void move_msg(struct item *thing);
 
+void check_coord_valid(struct coords *cp)
+{
+    struct being *runner;
+    for(runner = Mlist; runner; runner = runner->b_link) {
+	if(runner->b_dest == cp) abort();
+    }
+}
+
+void redirect_monster(struct coords *cp)
+{
+    struct being *runner;
+    for(runner = Mlist; runner; runner = runner->b_link) {
+	if(runner->b_dest == cp) 
+	    runner->b_dest = find_dest(runner);
+    }
+}
+
+
 void add_pack(register struct item *thing, bool silent)
 {
 	register struct item *pack, *after;
@@ -23,6 +41,7 @@ void add_pack(register struct item *thing, bool silent)
 		_detach(&Lvl_obj,thing);
 		mvaddch(MYY,MYX,floor_ch());
 		Places[MYX][MYY].p_ch = Player.b_room->r_flags & R_PASSAGE ? PASSAGE : FLOOR;
+		check_coord_valid(&thing->i_coords);
 		discard(thing);
 		msg("the scroll turns to dust as you pick it up");
 		return;
@@ -45,6 +64,7 @@ void add_pack(register struct item *thing, bool silent)
 				if(pack->i_item == POTION || pack->i_item == SCROLL || pack->i_item == FOOD) {
 					if(pack_room(picked_up,thing) == 0) return;
 					pack->i_number++;
+					check_coord_valid(&thing->i_coords);
 					discard(thing);
 					thing = pack;
 					after = 0;
@@ -61,6 +81,7 @@ void add_pack(register struct item *thing, bool silent)
 					pack->i_number += thing->i_number;
 					Inpack--;
 					if(pack_room(picked_up,thing)) {
+					    check_coord_valid(&thing->i_coords);
 						discard(thing);
 						thing = pack;
 						after = 0;
@@ -192,6 +213,7 @@ void pick_up()
 	if(thing->i_item == GOLD) {
 		money(thing->i_value);
 		_detach(&Lvl_obj,thing);
+		redirect_monster(&thing->i_coords);
 		discard(thing);
 		Player.b_room->r_value = 0;
 		return;

@@ -1,325 +1,728 @@
 
-Data.c,0
+Data.c,1987
+char	Release[10,100
+char encstr[12,125
+char statlist[20,394
+char	version[27,649
+bool	Amulet 29,698
+bool	After,37,1148
+bool	After, Noscore,37,1148
+bool	After, Noscore, Seenstairs;37,1148
+char	Dir_ch,39,1182
+	File_name[40,1195
+	Huh[41,1215
+	*P_colours[42,1229
+	Prbuf[43,1251
+	*R_stones[44,1267
+	Runch,45,1286
+	*S_names[46,1294
+	Take,47,1314
+	Whoami[48,1321
+	*Ws_made[49,1338
+	*Ws_type[50,1357
+	Orig_dsusp;51,1376
+int	N_objs,53,1390
+int	N_objs, Ntraps,53,1390
+int	N_objs, Ntraps, Max_hit,53,1390
+int	N_objs, Ntraps, Max_hit, Max_level,53,1390
+int	N_objs, Ntraps, Max_hit, Max_level, Food_left,53,1390
+int	N_objs, Ntraps, Max_hit, Max_level, Food_left, Dnum,53,1390
+int	N_objs, Ntraps, Max_hit, Max_level, Food_left, Dnum, Seed;53,1390
+int	Fd_temp,54,1453
+int	Fd_temp, Fd_hof;54,1453
+bool	Pack_used[56,1475
+char	Fruit[58,1496
+char	Home[59,1531
+char	*Inv_t_name[61,1556
+char	*Tr_name[67,1615
+int	Hungry_state 77,1769
+int	A_class[80,1853
+int	Count 84,1899
+int	E_levels[87,1995
+struct item	*Lvl_obj;95,2211
+struct being	*Mlist;96,2233
+WINDOW		*Hw;98,2255
+struct stats Max_stats 100,2269
+# define ZC	106,2331
+# define ZC12	107,2349
+struct room	Passages[109,2402
+char venusstat[125,2886
+struct monster	Monsters[127,2917
+struct info	Things[208,4534
+struct info	Arm_info[218,4695
+struct info	Pot_info[229,5005
+struct info	Ring_info[246,5499
+struct info	Scr_info[263,6006
+struct info	Weap_info[284,6694
+struct info	Ws_info[297,7004
+char	Preturn[314,7478
+char	Pspace[315,7525
+struct coords	Delta,317,7573
+struct coords	Delta, Oldpos,317,7573
+struct coords	Delta, Oldpos, Stairs;317,7573
+struct place	Places[319,7611
+struct item	*Cur_armor,321,7652
+struct item	*Cur_armor, *Cur_ring[321,7652
+struct item	*Cur_armor, *Cur_ring[2], *Cur_weapon;321,7652
+struct being	Player;323,7704
+struct room	*Oldrp,325,7726
+struct room	*Oldrp, Rooms[325,7726
+struct ltchars	Ltc;328,7777
+struct coords	nh,331,7805
+struct coords	nh, Ch_ret;331,7805
 
-armour.c,30
-take_off(32,536
-wear(11,123
+armour.c,39
+void wear(11,122
+int take_off(32,532
 
-chase.c,278
-cansee(300,7758
-chase(203,5139
-diag_ok(289,7446
-dist(358,9351
-dist_cp(364,9440
-do_chase(60,1201
-struct coords *find_dest(322,8258
-move_monst(52,1001
-struct room *roomin(272,6961
-runners(20,247
-runto(193,4941
-see_monst(175,4411
-set_oldch(158,3963
-waste_time(11,122
+chase.c,339
+void waste_time(19,381
+void runners(28,511
+static void move_monst(60,1289
+void do_chase(67,1492
+void set_oldch(164,4250
+int see_monst(180,4700
+void runto(197,5226
+int chase(206,5425
+struct room *roomin(274,7245
+int diag_ok(290,7726
+int cansee(300,8046
+struct coords *find_dest(321,8548
+int dist(356,9633
+int dist_cp(361,9721
 
-command.c,184
-call(692,13110
-command(112,3221
-current(751,14398
-d_level(652,12418
-help(581,11025
-identify(626,11959
-illcom(522,9782
-levit_check(685,12969
-search(531,9895
-u_level(669,12669
+command.c,381
+struct Help Help21,379
+} Helpstr[25,436
+struct Help Identstr[92,2970
+int	Pick_this 115,3540
+int	Pick_type 116,3560
+char	Pick_save 117,3580
+void command(122,3633
+void illcom(532,10190
+void search(540,10304
+void help(590,11439
+void identify(637,12410
+void d_level(663,12874
+void u_level(680,13130
+int levit_check(696,13435
+void call(703,13580
+void current(763,14880
 
-daemon.c,383
-come_down(220,4433
-struct daemon *d_slot(21,256
-daemon(40,643
-do_daemons(60,982
-do_fuses(100,1712
-doctor(113,1992
-extinguish(92,1579
-struct daemon *find_slot(30,424
-fuse(71,1211
-kill_daemon(52,848
-land(287,5933
-lengthen(83,1426
-nohaste(182,3371
-rollwand(142,2596
-sight(172,3119
-stomach(189,3467
-swander(134,2497
-unconfuse(156,2802
-unsee(162,2911
-visuals(255,5240
+daemon.c,569
+# define	SLOTS	13,156
+# define	DAEMON	14,174
+struct daemon daemon16,196
+} d_list[21,275
+struct daemon *d_slot(23,293
+struct daemon *find_slot(32,461
+void add_daemon(41,661
+void kill_daemon(51,857
+void do_daemons(58,986
+void fuse(68,1211
+void lengthen(78,1411
+void extinguish(85,1552
+void do_fuses(92,1680
+void doctor(104,1956
+void swander(124,2460
+void rollwand(130,2541
+void unconfuse(143,2746
+void unsee(149,2860
+void sight(159,3073
+void nohaste(169,3330
+void stomach(176,3431
+void come_down(206,4396
+void visuals(241,5188
+void land(273,5888
 
 extern.h,0
 
-fight.c,211
-attack(101,2048
-bounce(402,9296
-fight(47,729
-hit(368,8635
-killed(445,10211
-miss(388,9005
-char *prname(342,8141
-remove(417,9582
-roll_em(281,6262
-char *set_mname(248,5632
-swing(273,6138
-thunk(353,8344
+fight.c,352
+char *H_names[32,675
+char *M_names[43,864
+int Str_plus[54,1021
+int Add_dam[61,1152
+int fight(68,1282
+void attack(121,2589
+char *set_mname(267,6181
+int swing(292,6687
+int roll_em(300,6827
+char *prname(362,8708
+void thunk(373,8911
+void hit(387,9193
+void miss(407,9555
+void bounce(421,9842
+void remove_item(435,10119
+void killed(462,10735
 
-init.c,181
-init_colours(329,3751
-init_materials(378,4813
-init_names(342,4033
-init_player(293,2959
-init_probs(406,5469
-init_stones(364,4503
-char *pick_colour(424,5805
-sumprobs(417,5651
+init.c,480
+# define COLOURS	11,121
+# define SYLLS	12,141
+# define STONES	13,161
+# define WOODS	14,181
+# define METALS	15,200
+char *Rainbow[17,221
+char *Sylls[47,537
+} Stones[200,1748
+char *Wood[229,2293
+char *Metal[265,2707
+bool	Used[290,2979
+bool	Used2[291,2994
+void init_player(293,3011
+void init_colours(329,3807
+void init_names(342,4094
+void init_stones(364,4569
+void init_materials(378,4884
+void init_probs(406,5545
+void sumprobs(417,5732
+char *pick_colour(423,5890
 
-io.c,183
-addmsg(50,649
-doadd(96,1320
-endmsg(62,789
-err_msg(130,1772
-msg(29,398
-quest(107,1493
-readchar(145,2029
-show_win(223,3512
-status(153,2173
-step_ok(138,1889
-wait_for(212,3373
+io.c,586
+char	Msgbuf[15,180
+int	Newpos 16,201
+char	addbuf[18,218
+FILE	addpr;19,239
+int	width 21,252
+int	last_hunger,22,298
+int	last_hunger, last_level,22,298
+int	last_hunger, last_level, last_hp,22,298
+int	last_hunger, last_level, last_hp, protection,22,298
+int	last_hunger, last_level, last_hp, protection, last_strength;22,298
+char	*Hunger[24,364
+int msg(32,437
+void addmsg(49,646
+int endmsg(57,767
+void doadd(91,1302
+char quest(100,1472
+void err_msg(122,1750
+int step_ok(127,1815
+char readchar(133,1949
+void status(141,2098
+void wait_for(199,3299
+void show_win(209,3439
 
-item.c,97
-_attach(21,383
-_detach(11,121
-_free_list(34,581
-discard(45,742
-struct item *new_item(51,807
+item.c,117
+void _detach(11,121
+void _attach(20,388
+void _free_list(32,590
+void discard(42,749
+struct item *new_item(47,810
 
-mach_dep.c,264
-b_msg(138,3167
-bouncer(110,2510
-flush_type(370,7161
-getltchars(251,5108
-init_check(91,2072
-loadav(178,3787
-lock_sc(287,5633
-open_score(262,5284
-setup(227,4643
-start_score(280,5551
-symlink(355,6945
-too_much(156,3454
-ucount(203,4249
-unlock_sc(345,6822
+mach_dep.c,712
+struct nlist avenrun[44,1250
+static int	Num_checks;55,1372
+static char Lockfile[65,1559
+static char Lockfile[67,1620
+# define	NUMSCORES	71,1693
+# define	NUMSTRING	72,1715
+unsigned int numscores 75,1753
+char *Numname 76,1789
+# define	MAXDAYS	79,1834
+# define	MAXSTRING	80,1855
+unsigned int Temp_days 83,1892
+char *Max_name 84,1926
+bool Allscore 89,2015
+bool Allscore 91,2046
+void init_check(96,2103
+void bouncer(115,2541
+void b_msg(143,3212
+int too_much(162,3543
+loadav(185,3878
+ucount(211,4351
+void setup(235,4753
+void getltchars(262,5253
+void open_score(273,5426
+void start_score(291,5681
+int  lock_sc(298,5759
+void unlock_sc(356,6957
+int issymlink(366,7089
+void flush_type(380,7291
 
-mach_dep.h,0
+mach_dep.h,81
+#define HOF	3,32
+#define TEMP	4,63
+#define UNIX	5,96
+#define FREQUENCY	8,148
 
-main.c,107
-leave(190,3667
-main(13,160
-my_exit(240,4530
-quit(164,3252
-rnd(146,3027
-roll(156,3127
-shell(202,3814
+main.c,175
+static const char *Def_term 15,203
+int main(17,243
+int rnd(152,3212
+int roll(161,3310
+void quit(168,3429
+void leave(194,3849
+void shell(204,3980
+void my_exit(246,4747
 
-map.c,105
-erase_lamp(152,3323
-struct item *find_obj(177,3949
-look(11,120
-show_floor(171,3803
-trip_ch(131,3009
+map.c,124
+void look(11,120
+char trip_ch(130,3017
+void erase_lamp(149,3330
+int show_floor(166,3799
+struct item *find_obj(172,3949
 
-misc.c,266
-add_haste(85,1835
-add_str(73,1657
-aggravate(100,2124
-call_it(223,3921
-check_level(44,874
-chg_str(61,1283
-char *choose_str(248,4421
-eat(13,153
-get_dir(138,2740
-is_current(125,2447
-rnd_thing(241,4334
-sign(210,3806
-spread(217,3866
-char *vowelstr(106,2241
+misc.c,340
+char T_chars[11,121
+void eat(13,153
+void check_level(44,879
+void chg_str(61,1293
+void add_str(72,1663
+int add_haste(82,1826
+void aggravate(96,2112
+char *vowelstr(102,2234
+int is_current(120,2433
+int get_dir(132,2721
+int sign(204,3791
+int spread(210,3851
+void call_it(215,3901
+int rnd_thing(232,4311
+char *choose_str(239,4402
 
-monster.c,131
-exp_add(60,1550
-give_pack(149,3635
-new_monster(28,508
-randmonster(14,228
-struct being *wake_monster(92,2275
-wanderer(77,1855
+monster.c,199
+char Lvl_mons[11,124
+char Wand_mons[12,172
+int randmonster(14,228
+void new_monster(27,503
+int exp_add(56,1533
+void wanderer(72,1834
+struct being *wake_monster(87,2259
+void give_pack(143,3617
 
-move.c,195
-be_trapped(193,3867
-do_move(37,524
-do_run(30,460
-door_open(181,3539
-struct coords *rndmove(262,5569
-rust_armour(289,6267
-save(20,268
-save_throw(11,121
-turn_ok(159,3155
-turnref(167,3318
+move.c,235
+int save_throw(11,121
+int save(18,265
+void do_run(27,457
+void do_move(34,530
+int turn_ok(156,3174
+void turnref(163,3339
+void door_open(177,3565
+int be_trapped(188,3894
+struct coords *rndmove(256,5592
+void rust_armor(282,6286
 
-new_level.c,97
-new_level(11,126
-put_things(61,1429
-rnd_room(54,1327
-show_level(124,3041
-treas_room(88,2176
+new_level.c,121
+void new_level(11,126
+int rnd_room(54,1332
+void put_things(61,1438
+void treas_room(88,2190
+void show_level(124,3060
 
-option.c,202
-get_bool(84,1978
-get_inv_t(190,3883
-get_sf(123,2563
-get_str(140,2814
-option(28,1089
-parse_opts(232,4514
-pr_optname(60,1697
-put_bool(66,1802
-put_inv_t(78,1913
-put_str(72,1865
-strucpy(283,5815
+option.c,284
+struct option optlist[24,442
+void option(39,1349
+void pr_optname(73,1995
+void put_bool(78,2099
+void put_str(84,2189
+void put_inv_t(90,2262
+int get_bool(96,2349
+void get_sf(134,2951
+int get_str(150,3223
+int get_inv_t(200,4295
+void parse_opts(241,4939
+void strucpy(291,6239
 
-pack.c,217
-add_pack(11,121
-struct item *get_item(242,5478
-inventory(149,3586
-struct item *leave_pack(117,3009
-money(280,6202
-move_msg(208,4815
-pack_char(141,3452
-pack_room(96,2559
-pick_up(183,4355
-picky_inven(215,4930
+pack.c,255
+void add_pack(13,164
+int pack_room(96,2591
+struct item *leave_pack(115,3026
+char pack_char(137,3457
+int inventory(145,3596
+void pick_up(177,4356
+void move_msg(202,4821
+void picky_inven(208,4933
+struct item *get_item(235,5486
+void money(273,6210
 
-param.h,386
-# define CTRL(53,1066
-# define	bc(296,6306
-# define	bx(297,6337
-# define	by(298,6364
-# define ceq(288,6117
-# define cne(289,6170
-# define lring(213,4464
-# define	mindex(118,2301
-# define pbeing(265,5665
-# define pch(263,5581
-# define pflags(264,5620
-# define place_ch(266,5710
-# define ring(215,4602
-# define rring(214,4532
-# define	xcof(291,6224
-# define	ycof(292,6249
+param.h,6413
+# define	CLICK	17,245
+# define	MAXSTR	19,304
+# define	MAXLINES	20,356
+# define	MAXCOLS	21,419
+# define	MAXX	22,484
+# define	MAXY	23,529
+# define	MAX_PACK	25,575
+# define	DEF_VALUE	26,597
+# define	ROOMS	28,620
+# define	PASSAGES	29,638
+# define	TRAPS	30,659
+# define	OPTIONS	31,677
+# define	THINGS	32,698
+# define	POTIONS	33,717
+# define	SCROLLS	34,738
+# define	WEAPONS	35,759
+# define	ARMOURS	36,779
+# define	RINGS	37,799
+# define	STICKS	38,818
+# define	T_POTION	40,839
+# define	T_SCROLL	41,859
+# define	T_FOOD	42,879
+# define	T_WEAPON	43,898
+# define	T_ARMOUR	44,918
+# define	T_RING	45,938
+# define	T_STICK	46,957
+# define	RN	48,978
+# define	AU	50,1037
+# define CTRL(CTRL55,1106
+# define Verbose	57,1137
+# define	END_KILLED	61,1181
+# define	END_QUIT	62,1204
+# define	END_WINNER	63,1225
+# define	END_KILLED_AMULET	64,1248
+# define	FLOOR	68,1303
+# define	HWALL	69,1323
+# define	VWALL	70,1343
+# define	DOOR	71,1363
+# define	PASSAGE	72,1382
+# define	TRAP	73,1404
+# define	STAIRCASE	74,1423
+# define	POTION	75,1446
+# define	SCROLL	76,1467
+# define	RING	77,1488
+# define	STICK	78,1507
+# define	FOOD	79,1527
+# define	WEAPON	80,1546
+# define	ARMOUR	81,1567
+# define	GOLD	82,1588
+# define	AMULET	83,1607
+# define	PLAYER	84,1628
+# define	AQUATOR	88,1673
+# define	BAT	89,1695
+# define	CENTAUR	90,1713
+# define	DRAGON	91,1735
+# define	EMU	92,1756
+# define	VENUS_FLYTRAP	93,1774
+# define	GRIFFIN	94,1801
+# define	HOBGOBLIN	95,1823
+# define	ICE_MONSTER	96,1846
+# define	JABBERWOCK	97,1871
+# define	KESTREL	98,1895
+# define	LEPRECHAUN	99,1917
+# define	MEDUSA	100,1941
+# define	NYMPH	101,1962
+# define	ORC	102,1982
+# define	PHANTOM	103,2000
+# define	QUAGGA	104,2022
+# define	RATTLESNAKE	105,2043
+# define	SNAKE	106,2068
+# define	TROLL	107,2088
+# define	BLACK_UNICORN	108,2108
+# define	VAMPIRE	109,2135
+# define	WRAITH	110,2157
+# define	XEROC	111,2178
+# define	YETI	112,2198
+# define	ZOMBIE	113,2217
+# define	DRAGON_RANGE	117,2281
+# define	RANDMONST	119,2308
+# define	mindex(mindex120,2341
+# define	MONST_CONFUSION	128,2529
+# define	SEE_INVISIBLE	129,2558
+# define	BLIND	130,2585
+# define	LEVITATED	131,2605
+# define	CANCELLED	132,2628
+# define	HAS_CONFUSED	133,2651
+# define	GUARD_GOLD	134,2678
+# define	FAST	135,2703
+# define	FIGHTING	136,2723
+# define	HELD	137,2746
+# define	CONFUSED	138,2767
+# define	INVISIBLE	139,2791
+# define	HALLUCINATING	140,2816
+# define	AGGRESSIVE	141,2845
+# define	FEARS_LIGHT	142,2871
+# define	MOBILE	143,2899
+# define	DETECTING	144,2923
+# define	FAST_MOVE	145,2949
+# define	SLOW	146,2975
+# define	CURSED	150,3029
+# define	KNOWN	151,3050
+# define	THROW	152,3070
+# define	GROUP	153,3090
+# define	DROPPED	154,3110
+# define	PROTECTED	155,3133
+# define	P_CONFUSION	159,3173
+# define	P_HALLUCINATION	160,3197
+# define	P_POISON	161,3225
+# define	P_GAIN_STRENGTH	162,3246
+# define	P_SEE_INVISIBLE	163,3274
+# define	P_HEALING	164,3302
+# define	P_MONSTER_DETECTION	165,3324
+# define	P_MAGIC_DETECTION	166,3355
+# define	P_RAISE_LEVEL	167,3384
+# define	P_EXTRA_HEALING	168,3410
+# define	P_HASTE_SELF	169,3438
+# define	P_RESTORE_STRENGTH	170,3464
+# define	P_BLINDNESS	171,3495
+# define	P_LEVITATION	172,3520
+# define	S_MONSTER_CONFUSION	176,3562
+# define	S_MAGIC_MAPPING	177,3593
+# define	S_HOLD_MONSTER	178,3621
+# define	S_SLEEP	179,3648
+# define	S_ENCHANT_ARMOUR	180,3669
+# define	S_IDENTIFY_POTION	181,3697
+# define	S_IDENTIFY_SCROLL	182,3726
+# define	S_IDENTIFY_WEAPON	183,3755
+# define	S_IDENTIFY_ARMOUR	184,3784
+# define	S_IDENTIFY_RWS	185,3813
+# define	S_SCARE_MONSTER	186,3840
+# define	S_FOOD_DETECTION	187,3869
+# define	S_TELEPORTATION	188,3898
+# define	S_ENCHANT_WEAPON	189,3927
+# define	S_CREATE_MONSTER	190,3956
+# define	S_REMOVE_CURSE	191,3985
+# define	S_AGGRAVATE_MONSTERS	192,4013
+# define	S_PROTECT_ARMOUR	193,4046
+# define	R_PROTECTION	197,4089
+# define	R_ADD_STRENGTH	198,4114
+# define	R_SUSTAIN_STRENGTH	199,4141
+# define	R_SEARCHING	200,4171
+# define	R_SEE_INVISIBLE	201,4195
+# define	R_ADORNMENT	202,4223
+# define	R_AGGRAVATE_MONSTER	203,4247
+# define	R_DEXTERITY	204,4278
+# define	R_INCREASE_DAMAGE	205,4302
+# define	R_REGENERATION	206,4331
+# define	R_SLOW_DIGESTION	207,4358
+# define	R_TELEPORTATION	208,4387
+# define	R_STEALTH	209,4416
+# define	R_MAINTAIN_ARMOUR	210,4439
+# define	LEFT	212,4470
+# define	RIGHT	213,4486
+# define lring(lring215,4504
+# define rring(rring216,4572
+# define ring(ring217,4642
+# define	TELECHANCE	219,4683
+# define	WS_LIGHT	223,4755
+# define	WS_INVISIBILITY	224,4776
+# define	WS_LIGHTNING	225,4804
+# define	WS_FIRE	226,4829
+# define	WS_COLD	227,4850
+# define	WS_POLYMORPH	228,4871
+# define	WS_MAGIC_MISSILE	229,4896
+# define	WS_HASTE_MONSTER	230,4924
+# define	WS_SLOW_MONSTER	231,4952
+# define	WS_DRAIN_LIFE	232,4980
+# define	WS_NOTHING	233,5006
+# define	WS_TELEPORT_AWAY	234,5030
+# define	WS_TELEPORT_TO	235,5059
+# define	WS_CANCELLATION	236,5087
+# define	MACE	240,5132
+# define	LONG_SWORD	241,5150
+# define	SHORT_BOW	242,5173
+# define	ARROW	243,5195
+# define	DAGGER	244,5214
+# define	TWO_HANDED_SWORD	245,5234
+# define	DART	246,5262
+# define	SHURIKEN	247,5280
+# define	SPEAR	248,5301
+# define	BOLT	249,5320
+# define	P_PASSAGE	256,5459
+# define	P_DISCOVERED	257,5483
+# define	P_DROPPED	258,5510
+# define	P_KNOWN	259,5534
+# define	PASSNUM	261,5558
+# define pch(pch265,5621
+# define pflags(pflags266,5660
+# define pbeing(pbeing267,5705
+# define place_ch(place_ch268,5750
+# define	R_DARK	272,5845
+# define	R_PASSAGE	273,5866
+# define	R_MAZE	274,5889
+# define	TRAPDOOR	278,5924
+# define	ARROW_TRAP	279,5945
+# define	SLEEPING_GAS_TRAP	280,5968
+# define	BEAR_TRAP	281,5997
+# define	TELEPORT_TRAP	282,6019
+# define	POISON_DART_TRAP	283,6045
+# define	RUST_TRAP	284,6073
+# define	TMASK	286,6096
+# define ceq(ceq290,6157
+# define cne(cne291,6210
+# define	xcof(xcof293,6264
+# define	ycof(ycof294,6289
+# define	ME	296,6315
+# define	bc(bc298,6346
+# define	bx(bx299,6377
+# define	by(by300,6404
+# define	MYX	302,6432
+# define	MYY	303,6456
+# define	BEL	307,6499
+# define	BSP	308,6517
+# define	ESC	309,6535
+# define	CTLH	310,6553
+# define	CTLJ	311,6572
+# define	CTLK	312,6591
+# define	CTLL	313,6610
+# define	CTLY	314,6629
+# define	CTLU	315,6648
+# define	CTLB	316,6667
+# define	CTLN	317,6686
+# define	CTLP	318,6705
+# define	CTLR	319,6724
 
-passages.c,141
-conn(118,3109
-do_passages(69,1808
-door(228,6186
-floor_at(62,1691
-floor_ch(56,1581
-numpass(264,6957
-passnum(249,6636
-putpass(215,5954
+passages.c,453
+struct cn cn11,125
+} Conn[15,205
+int	Xinc,45,1523
+int	Xinc, Yinc;45,1523
+struct coords	Pass;47,1540
+int	Xturn,49,1561
+int	Xturn, Yturn;49,1561
+struct coords	Start_door,51,1580
+struct coords	Start_door, Finish_door;51,1580
+int	Pnum;53,1620
+bool	Newpnum;54,1630
+char floor_ch(56,1645
+char floor_at(62,1760
+void do_passages(69,1882
+void conn(118,3195
+void putpass(214,6044
+void door(226,6275
+void passnum(245,6721
+void numpass(260,7047
 
-potion.c,132
-do_pot(270,6645
-invis_on(213,5328
-is_magic(194,4979
-quaff(62,910
-raise_level(264,6545
-seen_stairs(252,6167
-turn_see(224,5612
+potion.c,236
+struct pact pact11,123
+} P_actions[17,214
+void fuse_turn_see(62,942
+void quaff(67,994
+int is_magic(199,5082
+void invis_on(217,5427
+int turn_see(228,5716
+int seen_stairs(255,6269
+void raise_level(267,6661
+void do_pot(273,6766
 
-ring.c,94
-gethand(86,1939
-ring_eat(99,2257
-char *ring_num(110,2507
-ring_off(63,1433
-ring_on(28,591
+ring.c,130
+int	R_eat[11,121
+void ring_on(28,590
+void ring_off(63,1437
+int gethand(86,1948
+int ring_eat(99,2270
+char *ring_num(109,2517
 
-score.c,136
-centre(263,6170
-death(205,4927
-death_monst(395,9879
-do_score(83,1757
-char *killname(365,9309
-score(59,1235
-total_winner(269,6240
+score.c,336
+# define	SECSPERDAY	15,206
+char	*Rip[17,233
+char *End_types[34,848
+struct killtype killtype41,935
+} Kill_types[45,997
+char Rnd_death[54,1164
+bool	No_death 57,1233
+void score(66,1424
+void do_score(90,1960
+void death(213,5173
+int centre(272,6435
+void total_winner(278,6521
+char *killname(374,9599
+int death_monst(404,10169
 
-screen.c,202
-accnt_maze(217,4712
-dig(169,3792
-do_maze(147,3295
-do_rooms(31,377
-draw_room(108,2483
-enter_room(267,5861
-find_floor(237,5189
-horiz(137,3121
-leave_room(307,6751
-rnd_pos(229,5017
-vert(127,2937
+screen.c,511
+# define MAZEY	11,123
+# define MAZEX	12,140
+int	Xminimum,20,426
+int	Xminimum, Yminimum;20,426
+int	Maxy,21,450
+int	Maxy, Maxx;21,450
+int	Starty,22,466
+int	Starty, Startx;22,466
+struct maze maze24,487
+} Maze[28,559
+struct coords Pass_inc[30,582
+void do_rooms(37,656
+void draw_room(114,2767
+void vert(132,3219
+void horiz(140,3398
+void do_maze(149,3571
+void dig(170,4066
+void accnt_maze(217,4989
+void rnd_pos(228,5291
+int find_floor(236,5467
+void enter_room(266,6129
+void leave_room(305,7017
 
-scribe.c,149
-auto_save(63,1090
-encread(179,3520
-encwrite(159,3172
-rd_score(200,3921
-restore(104,1835
-save_file(77,1320
-save_game(18,222
-wr_score(207,4029
+scribe.c,232
+char	Frob;16,230
+struct stat	Sbuf;21,394
+void save_game(23,413
+void auto_save(68,1277
+void save_file(82,1512
+void restore(105,1987
+void encwrite(160,3329
+void encread(177,3665
+void rd_score(196,4058
+void wr_score(201,4169
 
-scroll.c,38
-read_scroll(19,244
-uncurse(182,4553
+scroll.c,112
+struct coords	Create_pos;11,123
+char	Ident_type[13,150
+void read_scroll(20,294
+static void uncurse(183,4600
 
-stick.c,96
-char *charge_str(339,8468
-do_zap(33,515
-drain(198,4880
-fire_bolt(239,5853
-fix_stick(17,213
+stick.c,249
+struct item	Missile;11,122
+struct being	*Hit_monst[13,144
+struct coords	Bolt_pos,15,174
+struct coords	Bolt_pos, Bolt_path[15,174
+void fix_stick(20,236
+void do_zap(35,535
+void drain(200,4925
+void fire_bolt(241,5903
+char *charge_str(339,8512
 
-thing.c,277
-add_line(382,8217
-discovered(287,6552
-drop(134,3053
-dropcheck(155,3665
-end_line(443,9488
-char *inv_name(23,258
-nameit(482,10097
-struct item *new_thing(184,4319
-char *nothing(457,9664
-char *nullstr(509,10842
-pick_one(258,6031
-print_disc(331,7280
-set_order(368,7985
+thing.c,480
+int	Line_cnt 11,122
+bool	Newpage 12,140
+int	Win_xstart 14,163
+char *Lastfmt;16,185
+char *Lastarg;17,200
+struct item	Dummy_item;19,216
+short	Order[21,241
+char *inv_name(30,515
+void drop(140,3302
+int dropcheck(161,3919
+struct item *new_thing(189,4566
+int pick_one(263,6278
+void discovered(290,6782
+void print_disc(334,7524
+void set_order(370,8238
+int add_line(382,8462
+void end_line(457,9963
+char *nothing(471,10147
+void nameit(499,10628
+char *nullstr(525,11364
 
-throw.c,76
-do_motion(24,531
-fall(55,1456
-missile(13,147
-char *missile_name(84,2074
+throw.c,122
+struct coords	Fall_pos;11,122
+void missile(13,147
+void do_motion(23,528
+void fall(52,1425
+char *missile_name(79,2034
 
-types.h,0
+types.h,316
+typedef void (*DFUNC)DFUNC7,60
+struct coords coords8,94
+struct room room13,130
+struct stats stats25,306
+struct being being35,432
+struct place place50,689
+struct item item56,769
+struct info info76,1084
+struct monster monster84,1188
+struct option option97,1362
+struct scorefile scorefile105,1492
 
-weapon.c,174
-fallpos(121,2302
-hit_monster(72,1396
-init_weapon(46,789
-char *num(82,1555
-set_know(189,3653
-teleport(213,4101
-char *type_name(203,3918
-whatis(143,2780
-wield(92,1779
+weapon.c,318
+int	Group 11,123
+struct idam idam15,211
+} Init_dam[20,291
+struct tname tname32,720
+} Type_names[36,772
+void init_weapon(48,1034
+int hit_monster(72,1630
+char *num(80,1783
+void wield(88,1997
+int fallpos(117,2524
+void whatis(138,3000
+void set_know(182,3864
+char *type_name(194,4120
+void teleport(204,4303
