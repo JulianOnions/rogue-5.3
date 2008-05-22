@@ -34,7 +34,7 @@ void new_monster(register struct being *monst, char ch, register struct coords *
 	monst->b_app = ch;
 	bc(monst) = *pos;
 	move(pos->y,pos->x);
-	monst->b_oldch = winch(stdscr);
+	monst->b_oldch = WINCH(stdscr);
 	monst->b_room = roomin(pos);
 	Places[pos->x][pos->y].p_being = monst;
 	minit = &Monsters[mindex(monst->b_ch)];

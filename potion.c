@@ -256,7 +256,7 @@ int seen_stairs()
 {
 	register struct being *monst;
 	move(Stairs.y,Stairs.x);
-	if(winch(stdscr) == STAIRCASE) return(TRUE);
+	if(WINCH(stdscr) == STAIRCASE) return(TRUE);
 	if(MYX == Stairs.x && MYY == Stairs.y) return(TRUE);
 	if((monst = Places[Stairs.x][Stairs.y].p_being) != NULL) {
 		if((see_monst(monst) && (monst->b_flags & MOBILE)) || ((Player.b_flags & DETECTING) && monst->b_oldch == STAIRCASE)) return(TRUE);

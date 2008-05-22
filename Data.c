@@ -71,7 +71,8 @@ char	*Tr_name[] = {
 	"a beartrap",
 	"a teleport trap",
 	"a poison dart trap",
-	"a rust trap"
+	"a rust trap",
+	"a trap"
 };
 
 int	Hungry_state = 0, Inpack = 0, Inv_type = 0, Level = 1, Mpos = 0,

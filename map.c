@@ -79,7 +79,7 @@ void look(bool wake)
 				}
 				move(y,x);
 				if((Player.b_room->r_flags & R_DARK) && !See_floor && lookch == FLOOR) lookch = ' ';
-				if(monst || lookch != winch(stdscr)) addch(lookch);
+				if(monst || lookch != WINCH(stdscr)) addch(lookch);
 				if(!Door_stop || Firstmove || !Running) continue;
 				switch(Runch) {
 				case 'h':

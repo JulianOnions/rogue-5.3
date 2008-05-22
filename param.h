@@ -218,6 +218,7 @@
 
 # define	TELECHANCE	50	/* When wearing ring */
 
+#define WINCH(x) (winch(x)&A_CHARTEXT)
 /* wands and staffs */
 
 # define	WS_LIGHT		0

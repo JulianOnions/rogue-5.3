@@ -278,7 +278,7 @@ void enter_room(register struct coords *door)
 				monst = Places[x][y].p_being;
 				floorch = Places[x][y].p_ch;
 				if(monst == 0) {
-					if(winch(stdscr) != floorch) {
+					if(WINCH(stdscr) != floorch) {
 						addch(floorch);
 					} else {
 						move(y,x+1);
@@ -319,7 +319,7 @@ void leave_room(register struct coords *door)
 	for(y = rm->r_ystart; y < rm->r_ysize+rm->r_ystart; y++) {
 		for(x = rm->r_xstart; x < rm->r_xsize+rm->r_xstart; x++) {
 			move(y,x);
-			if((dispch = winch(stdscr)) != FLOOR) {
+			if((dispch = WINCH(stdscr)) != FLOOR) {
 				if(isupper(toascii(dispch))) {
 					if(Player.b_flags & DETECTING) {
 						standout();

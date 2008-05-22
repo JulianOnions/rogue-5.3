@@ -64,7 +64,7 @@ void add_pack(register struct item *thing, bool silent)
 				if(pack->i_item == POTION || pack->i_item == SCROLL || pack->i_item == FOOD) {
 					if(pack_room(picked_up,thing) == 0) return;
 					pack->i_number++;
-					check_coord_valid(&thing->i_coords);
+					redirect_monster(&thing->i_coords);
 					discard(thing);
 					thing = pack;
 					after = 0;
@@ -81,7 +81,7 @@ void add_pack(register struct item *thing, bool silent)
 					pack->i_number += thing->i_number;
 					Inpack--;
 					if(pack_room(picked_up,thing)) {
-					    check_coord_valid(&thing->i_coords);
+						redirect_monster(&thing->i_coords);
 						discard(thing);
 						thing = pack;
 						after = 0;

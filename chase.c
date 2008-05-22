@@ -172,7 +172,7 @@ void set_oldch(register struct being *monst,
 	register int oldoldch;
 	move(c->y,c->x);
 	oldoldch = monst->b_oldch;
-	monst->b_oldch = winch(stdscr);
+	monst->b_oldch = WINCH(stdscr);
 	if((Player.b_flags & BLIND) == 0) {
 		if((oldoldch == FLOOR || monst->b_oldch == FLOOR) && (monst->b_room->r_flags & R_DARK)) {
 			monst->b_oldch = ' ';

@@ -124,7 +124,7 @@ void do_zap()
 				if(monst->b_ch == VENUS_FLYTRAP) Player.b_flags &= ~HELD;
 				if(by(monst) != y || bx(monst) != x) {
 					move(by(monst),bx(monst));
-					monst->b_oldch = winch(stdscr);
+					monst->b_oldch = WINCH(stdscr);
 					if(see_monst(monst)) {
 						addch(monst->b_app);
 					} else if(Player.b_flags & DETECTING) {

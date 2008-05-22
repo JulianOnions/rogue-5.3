@@ -279,7 +279,7 @@ char *set_mname(m)
 	}
 	if(Player.b_flags & HALLUCINATING) {
 		move(by(m),bx(m));
-		mix = winch(stdscr);
+		mix = WINCH(stdscr);
 		if(!isupper(mix)) {
 			mix = rnd(26);
 		} else {
