@@ -115,6 +115,8 @@ void death(char cause);
 int death_monst();
 int diag_ok(register struct coords *from, struct coords *to);
 void discard(register struct item *thing);
+void discard_monster(register struct being *thing);
+void discard_item(register struct item *thing);
 void discovered();
 int dist(int y1, int x1, int y2, int x2);
 int dist_cp(register struct coords *a, struct coords *b);

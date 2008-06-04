@@ -39,6 +39,15 @@ void _free_list(register struct item **list)
 	}
 }
 
+void discard_monster(struct being *thing)
+{
+}
+
+void discard_item(struct item *thing)
+{
+    discard(thing);
+}
+
 void discard(register struct item *thing)
 {
 	free(thing);

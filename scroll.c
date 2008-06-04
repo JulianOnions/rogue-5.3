@@ -177,7 +177,7 @@ void read_scroll()
 	look(TRUE);
 	status();
 	call_it(&Scr_info[scroll->i_type]);
-	if(one) discard(scroll);
+	if(one) discard_item(scroll);
 }
 
 static void uncurse(register struct item *thing)

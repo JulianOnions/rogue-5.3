@@ -246,7 +246,7 @@ int attack(register struct being *m)
 					remove_item(&bc(m),Places[bx(m)][by(m)].p_being,FALSE);
 					leave_pack(stolen,FALSE,FALSE);
 					msg("she stole %s!",inv_name(stolen,TRUE));
-					discard(stolen);
+					discard_item(stolen);
 				}
 				retval = 1;
 				break;
@@ -448,7 +448,7 @@ void remove_item(register struct coords *position,
 		if(drop_pack) {
 			fall(thing,FALSE);
 		} else {
-			discard(thing);
+			discard_item(thing);
 		}
 		thing = link;
 	}
@@ -460,7 +460,7 @@ void remove_item(register struct coords *position,
 		To_death = FALSE;
 		if(Fight_flush) flush_type();
 	}
-	discard(monst);
+	discard_monster(monst);
 }
 
 void killed(register struct being *monst,

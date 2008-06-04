@@ -32,7 +32,7 @@ void runners(int junk)
 	static struct coords oldpos;
 	for(runner = Mlist; runner; runner = next) {
 	    next = runner->b_link;
-		if((runner->b_flags & FEARS_LIGHT) && (runner->b_room->r_flags & R_DARK) == 0) {
+		if((runner->b_flags & FEARS_LIGHT) && runner->b_room && (runner->b_room->r_flags & R_DARK) == 0) {
 			runner->b_flags |= MOBILE;
 			runner->b_dest = find_dest(runner);
 		}
@@ -41,9 +41,9 @@ void runners(int junk)
 			engaged = (runner->b_flags & FIGHTING) != 0;
 			if (move_monst(runner)) continue;
 			if(runner->b_flags & FAST_MOVE) {
-				if(dist_cp(&ME,&bc(runner)) >= 3) {
-					move_monst(runner);
-				}
+			    if(dist_cp(&ME,&bc(runner)) >= 3) {
+				if (move_monst(runner)) continue;
+			    }
 			}
 			if(engaged && cne(oldpos,bc(runner))) {
 				runner->b_flags &= ~FIGHTING;

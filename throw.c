@@ -66,7 +66,7 @@ void fall(register struct item *thing, bool mine)
 		_attach(&Lvl_obj,thing);
 		return;
 	}
-	discard(thing);
+	discard_item(thing);
 	if(mine) {
 		if(Has_hit) {
 			endmsg();

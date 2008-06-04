@@ -42,7 +42,7 @@ void add_pack(register struct item *thing, bool silent)
 		mvaddch(MYY,MYX,floor_ch());
 		Places[MYX][MYY].p_ch = Player.b_room->r_flags & R_PASSAGE ? PASSAGE : FLOOR;
 		check_coord_valid(&thing->i_coords);
-		discard(thing);
+		discard_item(thing);
 		msg("the scroll turns to dust as you pick it up");
 		return;
 	}
@@ -65,7 +65,7 @@ void add_pack(register struct item *thing, bool silent)
 					if(pack_room(picked_up,thing) == 0) return;
 					pack->i_number++;
 					redirect_monster(&thing->i_coords);
-					discard(thing);
+					discard_item(thing);
 					thing = pack;
 					after = 0;
 					break;
@@ -82,7 +82,7 @@ void add_pack(register struct item *thing, bool silent)
 					Inpack--;
 					if(pack_room(picked_up,thing)) {
 						redirect_monster(&thing->i_coords);
-						discard(thing);
+						discard_item(thing);
 						thing = pack;
 						after = 0;
 						break;
@@ -214,7 +214,7 @@ void pick_up()
 		money(thing->i_value);
 		_detach(&Lvl_obj,thing);
 		redirect_monster(&thing->i_coords);
-		discard(thing);
+		discard_item(thing);
 		Player.b_room->r_value = 0;
 		return;
 	}

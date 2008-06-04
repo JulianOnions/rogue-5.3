@@ -193,7 +193,7 @@ void quaff()
 	}
 	status();
 	call_it(&Pot_info[potion->i_type]);
-	if(one) discard(potion);
+	if(one) discard_item(potion);
 }
 
 int is_magic(register struct item *thing)
