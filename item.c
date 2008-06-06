@@ -45,7 +45,7 @@ void discard_monster(struct being *thing)
 
 void discard_item(struct item *thing)
 {
-    discard(thing);
+    //   discard(thing);
 }
 
 void discard(register struct item *thing)
