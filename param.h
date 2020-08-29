@@ -14,7 +14,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-# define	CLICK		64	/* beings/items allocated in CLICKs */
+/*# define	CLICK		64	 beings/items allocated in CLICKs */
+# define	CLICK		128	/* beings/items allocated in CLICKs */
 
 # define	MAXSTR		80	/* maximum length of strings */
 # define	MAXLINES	32	/* maximum number of screen lines used */
