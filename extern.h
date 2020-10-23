@@ -93,7 +93,7 @@ void _detach(register struct item **list, struct item *thing);
 void _free_list(register struct item **list);
 void add_daemon(DFUNC func, int arg, int spread);
 int add_haste(bool temp);
-int add_line(char *line, ...);
+int add_line(char *line, char *arg);
 void add_pack(register struct item *thing, bool silent);
 void add_str(register int *strength,int change);
 void addmsg(const char *message, ...);

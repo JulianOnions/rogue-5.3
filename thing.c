@@ -364,7 +364,7 @@ void print_disc(char item)
 			count++;
 		}
 	}
-	if(count == 0) add_line(nothing(item));
+	if(count == 0) add_line(nothing(item), 0);
 }
 
 void set_order(short *list, int size)
@@ -378,14 +378,19 @@ void set_order(short *list, int size)
 		list[sel] = swap;
 	}
 }
+void doaddX(char *fmt, ...) 
+{
+	va_list ap;
+	va_start(ap, fmt);
+	doadd(fmt,ap);
+	va_end(ap);
+}
 
-int add_line(char *line, ...)
+int add_line(char *line, char *arg)
 {
 	register WINDOW *win, *swin;
 	register int x, y;
 	register char *cont;
-	va_list ap;
-	va_start(ap, line);
 
 	cont = Pspace;
 	if(Line_cnt == 0) {
@@ -394,9 +399,8 @@ int add_line(char *line, ...)
 	}
 	if(Inv_type == 1) {
 		if(line && *line) {
-		    doadd(line, ap);
+		    doaddX(line, arg);
 		    if(endmsg() == ESC) {
-			va_end(ap);
 			return(ESC);
 		    }
 		}
@@ -443,14 +447,13 @@ int add_line(char *line, ...)
 		}
 		if(line && (Line_cnt || *line)) {
 		        wmove(Hw, Line_cnt++, 0);
-			vw_printw(Hw,line,ap);
+			wprintw(Hw,line,arg);
 			getyx(Hw,y,x);
 			if(Win_xstart < x) Win_xstart = x;
 			Lastfmt = line;
-			Lastarg = va_arg(ap, char *);
+			Lastarg = arg;
 		}
 	}
-	va_end(ap);
 	return(-28);
 }
 
